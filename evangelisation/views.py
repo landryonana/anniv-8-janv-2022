@@ -89,7 +89,7 @@ def send_notification(registration_ids , message_title , message_desc):
             "body" : message_desc,
             "title" : message_title,
             "image" : "https://i.ytimg.com/vi/m5WUPHRgdOA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDwz-yjKEdwxvKjwMANGk5BedCOXQ",
-            "icon": "https://yt3.ggpht.com/ytc/AKedOLSMvoy4DeAVkMSAuiuaBdIGKC7a5Ib75bKzKO3jHg=s900-c-k-c0x00ffffff-no-rj",
+            "icon": "https://hpbd.name/uploads/worigin/2020/03/03/happy-anniversary-cake-with-name-edit-demo-min5e5dc4679ae12_2abea0e115854c7e9031a4177d280cb4.jpg",
             
         }
     }
