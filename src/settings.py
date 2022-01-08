@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'src.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddm6vmju9o3f9k',
-        'USER': 'yswizrnkuftzub',
-        'PASSWORD': 'dd22abf3f9ac6d168cd86ef0dc0e30079acaae86a97cc344c1c3e60d077ad7e3',
-        'HOST': 'ec2-107-22-18-26.compute-1.amazonaws.com',
+        'NAME': 'd1g7o5pb8smgu2',
+        'USER': 'oafftxdxuzrmrn',
+        'PASSWORD': '11c8d0367a0b44c2a679280d1156fcd352b988cdda9531802a5b4c4d5031a78e',
+        'HOST': 'ec2-54-220-166-184.eu-west-1.compute.amazonaws.com',
         'POST': '5432',
     }
 }
@@ -151,11 +151,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-#==============================================================
-#==============================================================
-#======FILE MANAGER FOR DEV=========
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 #==============================================================
 #==============================================================
 #======FILE MANAGER FOR PRODUCT=========
@@ -166,7 +162,7 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
-
+DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'  
 
 
 
