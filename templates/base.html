@@ -1,0 +1,132 @@
+
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vase d'honneur Cameroun|Anniversaire">
+    <meta property="og:title" content="Vase d'honneur Cameroun|Anniversaire" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="{% static 'images_root/icon2/favicon2.ico' %}">
+    <link rel="stylesheet" href="{% static 'css_root/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css_root/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css_root/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'evangelisation/css/evangelisation.css' %}">
+    <link rel="stylesheet" href="{% static 'css_root/media-query.css' %}">
+
+    <title>
+        {% block titre %}
+
+        {% endblock titre %}
+    </title>
+
+    <!-- <script src="/static/js/firebase-messaging-sw.js"></script>-->
+</head>
+
+<body>
+    <div class="app">
+        {% load static %}
+        <nav class="nav-bar" id="nav-id">
+            <div class="logo">
+                <a href="{% url 'notification:notification_app_index' %}">
+                    <img src="{% static 'images_root/logo/vh-yde.jpg' %}" alt="">
+                </a>
+            </div>
+            <div class="menu-date">
+                {% block menu-date %}
+                <div class="menu-date1">
+                    <i class="fas fa-calendar"></i>
+                    <span>
+                        {% now "j F Y" %}
+                    </span>
+                </div>
+                {% block hamburger %}
+                {% endblock hamburger %}
+                {% endblock menu-date %}
+            </div>
+        </nav>
+        {% block sidebar %}
+        {% endblock sidebar %}
+        <div class="container">
+            <div class="wrapper">
+                <section id="content">
+                    {% block content %}
+                    {% endblock content %}
+                </section>
+            </div>
+        </div>
+        <div class="wrapper-footer">
+            {% block footer %}
+            {% include 'layouts/_footer.html' %}
+            {% endblock footer %}
+        </div>
+    </div>
+    <script src="{% static 'js_root/jquery.min.js' %}"></script>
+    <script src="{% static 'js_root/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js_root/script.js' %}"></script>
+    <script src="{% static 'accounts/js/accounts.js' %}"></script>
+    <script src="{% static 'evangelisation/js/evangelisation.js' %}"></script>
+
+    {% block script %}
+
+    {% endblock script %}
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+        import { getMessaging } from "firebase/messaging/sw";
+
+
+        // TODO: Add SDKs for Firebase products that you want to use
+
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBk-4j4ID2_R32qf4jxIif0M0qDKYu3YgE",
+            authDomain: "books-b6e0d.firebaseapp.com",
+            databaseURL: "https://books-b6e0d.firebaseio.com",
+            projectId: "books-b6e0d",
+            storageBucket: "books-b6e0d.appspot.com",
+            messagingSenderId: "155011306952",
+            appId: "1:155011306952:web:1f2a9c5b2b7a51b79b5cfd",
+            measurementId: "G-13GWZ275BD"
+        };
+
+        // Initialize Firebase
+        const messaging = getMessaging(firebaseApp);
+        console.log("============================", messaging.getToken())
+        confirm(firebase);
+        messaging.getToken({ vapidKey:'BCZpTKZ1esFFu2ahaA3DL1BToG64LTlbY7cwvwgRwD13GVgIvzkAqlMrXO5wcKWXXe-cKUen4hw6uVNOKqQ9fwM' }).then((currentToken) => {
+            if (currentToken) {
+                console.log(currentToken);
+                
+            } else {
+                console.log('No registration token available. Request permission to generate one.');
+
+            }
+        }).catch((err) => {
+            console.log('An error occurred while retrieving token. ', err);
+        });
+
+        messaging
+            .requestPermission()
+            .then(function () {
+                console.log("Notification permission granted.");
+                return messaging.getToken()
+            })
+            .catch(function (err) {
+                console.log("Unable to get permission to notify.", err);
+            });
+
+        messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+        });
+
+    </script>
+</body>
+
+</html>
