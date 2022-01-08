@@ -17,7 +17,8 @@ from evangelisation.models import Personne
 
 from evangelisation.utils import month_name
 from evangelisation.send_notification import send
-from pyfcm import FCMNotification
+
+
 
 from pushbullet import Pushbullet
 
