@@ -9,7 +9,7 @@ from evangelisation.models import Personne
 
 
 from evangelisation.utils import month_name
-from pyfcm import FCMNotification
+
 
 
 
